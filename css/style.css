@@ -1,0 +1,50 @@
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.splash_screen {
+  display: grid;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  
+}
+
+.splash_screen_start{
+  width: 825px;
+  height: 464px;
+  margin: 0 auto;
+  background-image: url("../images/PANTALLA-PRINCIPAL.jpg");
+  text-align: center;
+  padding-top: 100px;
+  border: 2px solid #4DBCCB;
+
+}
+
+.splash_screen_start h1{
+  font-size: 5em;
+  text-shadow: 2px;
+}
+
+.splash_screen_start button{
+  font-size: 3em;
+  border-radius: 20px;
+  border:  2px solid #4DBCCB;
+}
+
+.game-screen{
+  width: 90%;
+  height: 90vh;
+  margin: 60px auto;
+}
