@@ -45,12 +45,26 @@ const main = () => {
       
       if (event.code === 'ArrowUp' && game.player.directionX !== 0){
         game.player.setDirection(0,-1);
+        //game.trails.forEach((trail1)=>{
+          //trail1.setDirection(0,-1);
+        //});
+        
       } else if (event.code === 'ArrowDown' && game.player.directionX !== 0){
         game.player.setDirection(0,1);
+        //trail.setDirection(0,-1);
+        //game.trails.forEach((trail1)=>{
+          //trail1.setDirection(0,-1);
+        //});
       }else if(event.code === 'ArrowLeft' && game.player.directionY !== 0 ){
         game.player.setDirection(-1,0);
+        //game.trails.forEach((trail1)=>{
+          //trail1.setDirection(0,-1);
+        //});
       } else if (event.code === 'ArrowRight' && game.player.directionY !== 0){
         game.player.setDirection(1,0);
+        //game.trails.forEach((trail1)=>{
+          //trail1.setDirection(0,-1);
+        //});
       }
     };
     document.addEventListener('keydown', setPlayerDirection);
