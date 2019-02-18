@@ -1,14 +1,14 @@
 'use strict'
 class Trail{
-  constructor(canvas,x,y){
+  constructor(canvas,x,y,dx,dy){
     
     this.size=20;
     this.canvas=canvas;
     this.ctx= this.canvas.getContext('2d');
     this.x = x;
     this.y = y;
-    this.directionX=1;
-    this.directionY=0;
+    this.directionX=dx;
+    this.directionY=dy;
     
   };
 
@@ -19,12 +19,19 @@ class Trail{
 
   draw(){
     this.ctx.fillStyle = 'white';
-    if(this.directionY === 0 && this.directionX !== -1){
-      this.ctx.fillRect(this.x-this.size, this.y-this.size,1,this.size);
-    }else{
-      this.ctx.fillRect(this.x+this.size, this.y-this.size,this.size,this.size);
+    if(this.directionX === 1 && this.directionY === 0){
+      this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,1,this.size);
+    }//Girar Abajo
+    else if(this.directionX === 0 && this.directionY === 1){
+      this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,this.size,1);
+    }//Girar a la izquierda
+    
+    else if(this.directionX === -1 && this.directionY === 0){
+      this.ctx.fillRect(this.x+this.size/2-1, this.y-this.size/2,1,this.size);
     }
-   
+    else if(this.directionX === 0 && this.directionY === -1){
+      this.ctx.fillRect(this.x-this.size/2, this.y+this.size/2-1,this.size,1);
+    }
   }
 
   setDirection(directionx,directiony){

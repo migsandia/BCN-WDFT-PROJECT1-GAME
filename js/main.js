@@ -43,8 +43,8 @@ const main = () => {
 
     const setPlayerDirection = (event) => {
       
-      if (event.code === 'ArrowUp' && game.player.directionX !== 0){
-        game.player.setDirection(0,-1);
+      if (event.code === 'ArrowRight' && game.player.directionY !== 0){
+        game.player.setDirection(1,0);
         //game.trails.forEach((trail1)=>{
           //trail1.setDirection(0,-1);
         //});
@@ -60,8 +60,8 @@ const main = () => {
         //game.trails.forEach((trail1)=>{
           //trail1.setDirection(0,-1);
         //});
-      } else if (event.code === 'ArrowRight' && game.player.directionY !== 0){
-        game.player.setDirection(1,0);
+      } else if(event.code === 'ArrowUp' && game.player.directionX !== 0){
+        game.player.setDirection(0,-1);
         //game.trails.forEach((trail1)=>{
           //trail1.setDirection(0,-1);
         //});
