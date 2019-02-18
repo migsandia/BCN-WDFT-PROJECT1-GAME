@@ -44,7 +44,7 @@ class Player{
 
   checkScreen(){
 
-    if(this.y - this.size <=0 || this.x-this.size <=0){
+    if(this.y - this.size/2 <=0 || this.x-this.size/2 <=0){
       return true;
     }else if(this.y + this.size/2 >= this.canvas.height || this.x + this.size/2 >= this.canvas.width){
       return true;

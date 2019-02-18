@@ -43,8 +43,51 @@ body {
   border:  2px solid #4DBCCB;
 }
 
+.splash_screen {
+  display: grid;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  
+}
+
+.game-over-screen{
+  width: 825px;
+  height: 464px;
+  margin: 0 auto;
+  background-image: url("../images/PANTALLA-PRINCIPAL.jpg");
+  text-align: center;
+  padding-top: 100px;
+  border: 2px solid #4DBCCB;
+
+}
+
+.game-over-screen h1{
+  font-size: 5em;
+  text-shadow: 2px;
+}
+
+.game-over-screen button{
+  font-size: 3em;
+  border-radius: 20px;
+  border:  2px solid #4DBCCB;
+}
+
+.game-over{
+  display: grid;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  
+}
 .game-screen{
   width: 90%;
-  height: 90vh;
-  margin: 60px auto;
+  height: 82vh;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: url('../images/tron-fondo-juego.jpg');
 }

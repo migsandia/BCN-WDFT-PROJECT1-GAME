@@ -1,14 +1,13 @@
 'use strict'
-class Trail{
-  constructor(canvas,x,y,dx,dy,color){
+
+class Speed{
+  constructor(canvas){
     
-    this.size=20;
+    this.size=40;
     this.canvas=canvas;
     this.ctx= this.canvas.getContext('2d');
     this.x = x;
     this.y = y;
-    this.directionX=dx;
-    this.directionY=dy;
     this.color = color;
   };
 

@@ -79,8 +79,10 @@ const main = () => {
   const buildGameOver = () =>{
     const gameOverScreen = buildDom(`
     <section class="game-over">
-      <h1>Game Over Screen</h1>
-      <button>Restart</button>
+      <div class="game-over-screen">
+        <h1>Game Over Screen</h1>
+        <button>Restart</button>
+      </div>
     </section>
     
     `);
