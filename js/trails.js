@@ -1,6 +1,6 @@
 'use strict'
 class Trail{
-  constructor(canvas,x,y,dx,dy){
+  constructor(canvas,x,y,dx,dy,color){
     
     this.size=20;
     this.canvas=canvas;
@@ -9,7 +9,7 @@ class Trail{
     this.y = y;
     this.directionX=dx;
     this.directionY=dy;
-    
+    this.color = color;
   };
 
   update(x,y){
@@ -18,17 +18,17 @@ class Trail{
   }
 
   draw(){
-    this.ctx.fillStyle = 'white';
+    this.ctx.fillStyle = this.color;
+    //Girar la derecha
     if(this.directionX === 1 && this.directionY === 0){
       this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,1,this.size);
     }//Girar Abajo
     else if(this.directionX === 0 && this.directionY === 1){
       this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,this.size,1);
     }//Girar a la izquierda
-    
     else if(this.directionX === -1 && this.directionY === 0){
       this.ctx.fillRect(this.x+this.size/2-1, this.y-this.size/2,1,this.size);
-    }
+    }//Girar Arriba
     else if(this.directionX === 0 && this.directionY === -1){
       this.ctx.fillRect(this.x-this.size/2, this.y+this.size/2-1,this.size,1);
     }

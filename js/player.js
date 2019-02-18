@@ -1,16 +1,17 @@
 'use strict'
 class Player{
-  constructor(canvas,lives){
+  constructor(canvas,lives,x,y,direction,color){
     
     this.size=20;
     this.canvas=canvas;
     this.ctx= this.canvas.getContext('2d');
-    this.x = 100 + this.size/2;
-    this.y = 100 + this.size/2;
-    this.speed = 1;
-    this.directionX=1;
+    this.x = x + this.size/2;
+    this.y = y + this.size/2;
+    this.speed = 2;
+    this.directionX=direction;
     this.directionY=0;
     this.lives = lives;
+    this.color = color;
   };
 
   update(){
@@ -19,7 +20,7 @@ class Player{
   }
 
   draw(){
-    this.ctx.fillStyle = '#1148CB';
+    this.ctx.fillStyle = this.color;
     // Si el jugador va ahacia la derecha
     if(this.directionX === 1 && this.directionY === 0){
       this.ctx.fillRect(this.x- this.size/2, this.y-this.size/2,this.size,this.size);
@@ -80,11 +81,7 @@ class Player{
      
 
         if(collideRight && collideTop && collideBottom && collideLeft){
-          console.log(this.x + this.size +">"+(trail.x - 1));
-          console.log(this.x - this.size / 2+"<"+(trail.x + 1));
-          console.log(this.y - this.size / 2+"<"+(trail.y + (trail.size / 2)));
-          console.log(this.y + this.size / 2+">"+(trail.y - (trail.size / 2)));
-      
+          
           return true;
         }
       
