@@ -66,6 +66,16 @@ class Player{
         collideLeft = this.x + this.size/2 > trail.x+this.size/2;
         collideTop = this.y - this.size / 2 < trail.y + trail.size / 2;
         collideBottom = this.y + this.size / 2 > trail.y - trail.size / 2;
+      }else if(this.directionY===1){
+        collideRight = this.x + this.size / 2 > trail.x-trail.size /2;  
+        collideLeft = this.x - this.size/2 < trail.x-trail.size /2;
+        collideTop = this.y + this.size / 2 > trail.y - this.size / 2;
+        collideBottom = this.y - this.size / 2 < trail.y - this.size / 2;
+      }else if(this.directionY===-1){
+        collideRight = this.x + this.size / 2 > trail.x-trail.size /2;  
+        collideLeft = this.x - this.size/2 < trail.x-trail.size /2;
+        collideTop = this.y - this.size / 2 < trail.y + this.size / 2;
+        collideBottom = this.y + this.size / 2 > trail.y + this.size / 2;
       }
      
 
