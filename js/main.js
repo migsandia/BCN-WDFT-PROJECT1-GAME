@@ -38,8 +38,8 @@ const main = () => {
         </div>
       </section>
     `);
-    const width = document.querySelector('.game-screen').offsetWidth;
-    const height = document.querySelector('.game-screen').offsetHeight;
+    const width = document.querySelector('.game-screen-content').offsetWidth;
+    const height = document.querySelector('.game-screen-content').offsetHeight;
 
     const canvasElement = document.querySelector('canvas');
 
