@@ -9,6 +9,9 @@ const main = () => {
 
   const buildSplashScreen = () => {
     const  splashScreen = buildDom(`
+    <audio autoplay>
+    <source src="audios/splash-screen.mp3" type="audio/mp4">
+    </audio>
     <section class="splash_screen">
       <div class="splash_screen_start">
         <img src="images/titulo.png" alt="titulo" class="splash-screen-title" />
@@ -23,7 +26,9 @@ const main = () => {
   const buildGameScreen = () => {
     const gameScreen = buildDom(`
       <section class="game-screen">
-        <canvas></canvas>
+        <div class="game-screen-content">
+          <canvas></canvas>
+        </div>
       </section>
     `);
     const width = document.querySelector('.game-screen').offsetWidth;

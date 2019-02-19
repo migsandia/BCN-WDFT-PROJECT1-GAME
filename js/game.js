@@ -58,8 +58,7 @@ class Game{
     img.onload = function(){
       ctx.drawImage(img, 0, 0);
     }
-    //this.ctx.fillStyle = '#0B141F';
-    //this.ctx.fillRect(0, 0,this.canvas.width, this.canvas.height);
+    
     this.player.draw();
     this.player2.draw();
     this.trails.forEach((trail1)=>{
