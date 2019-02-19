@@ -1,7 +1,7 @@
 'use strict'
 
-class Speed{
-  constructor(canvas){
+class SpeedItem{
+  constructor(canvas,x,y){
     
     this.size=40;
     this.canvas=canvas;

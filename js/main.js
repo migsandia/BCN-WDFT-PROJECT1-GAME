@@ -11,12 +11,12 @@ const main = () => {
     const  splashScreen = buildDom(`
     <section class="splash_screen">
       <div class="splash_screen_start">
-        <h1>TRON LEGACY</h1>
-        <button>Start</button>
+        <img src="images/titulo.png" alt="titulo" class="splash-screen-title" />
+        <a><img src="images/boton-start.png" alt="start" class="splash-screen-start-button" /></a>
       </div>
     </section>
     `);
-    const startButton=document.querySelector('button');
+    const startButton=document.querySelector('a');
     startButton.addEventListener('click',buildGameScreen);
   };
 //--------------BUILD GAME SCREEEN

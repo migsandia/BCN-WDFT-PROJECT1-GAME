@@ -8,6 +8,7 @@ class Game{
     this.trails=[];
     this.trails2=[];
     this.numTrails=0;
+    this.speedItem;
     this.isGameOver = false;
   };
 
@@ -15,7 +16,7 @@ class Game{
       
     this.player= new Player (this.canvas,4,100,100,1,"blue");
     this.player2= new Player (this.canvas,4,400,400,-1,"red");
-   
+    //this.speedItem= new SpeedItem (this.canvas,200,200);
     
     const loop = () => {
     
@@ -38,7 +39,7 @@ class Game{
   updateCanvas(){
     this.player.update();
     this.player2.update();
-   
+    
     this.trails.forEach((trail1)=>{
       trail1.update(this.player.x,this.player.y);
     });
