@@ -42,10 +42,13 @@ body {
 }
 
 .splash_screen_start a{
-  border-radius: 110px;
-  width: 100px;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
   grid-row: 3 / 4;
+  
  }
 
 .splash-screen-start-button {
