@@ -26,6 +26,13 @@ const main = () => {
   const buildGameScreen = () => {
     const gameScreen = buildDom(`
       <section class="game-screen">
+        <div class="game-screen-score">
+          <h2 class="title-player1">PLAYER 1</h2>
+          <h2 Class="title-player2">PLAYER 2</h2>
+          <img src="images/player-blue.png" class="game-screen-blue-moto" />
+          <img src="images/player-red.png" class="game-screen-red-moto" />
+        </div>
+        <div></div>
         <div class="game-screen-content">
           <canvas></canvas>
         </div>
