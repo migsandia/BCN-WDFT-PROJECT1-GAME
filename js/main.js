@@ -28,9 +28,13 @@ const main = () => {
       <section class="game-screen">
         <div class="game-screen-score">
           <h2 class="title-player1">PLAYER 1</h2>
-          <h2 Class="title-player2">PLAYER 2</h2>
+          <h2 class="title-player2">PLAYER 2</h2>
           <img src="images/player-blue.png" class="game-screen-blue-moto" />
           <img src="images/player-red.png" class="game-screen-red-moto" />
+          <div class="score-players">
+            <h3 class="score-player1"></h3>
+            <h3 class="score-player2"></h3>
+          </div>
         </div>
         <div></div>
         <div class="game-screen-content">
@@ -40,18 +44,23 @@ const main = () => {
     `);
     const width = document.querySelector('.game-screen-content').offsetWidth;
     const height = document.querySelector('.game-screen-content').offsetHeight;
-
+    const scorePlayer1Element = document.querySelector('.score-player1');
+    const scorePlayer2Element = document.querySelector('.score-player2');
     const canvasElement = document.querySelector('canvas');
+    const game =new Game(canvasElement);
 
     canvasElement.setAttribute('width',width);
     canvasElement.setAttribute('height',height);
    
-
-
-    const game =new Game(canvasElement);
-    //game.gameOverCallback(buildGameOver);
+    function scoreBuild (){
+      scorePlayer1Element.innerText=game.scorePlayer1Win;
+      scorePlayer2Element.innerText=game.scorePlayer2Win;
+    }
+   
+    
     game.player1WinsCallback(buildPlayer1Wins);
     game.player2WinsCallback(buildPlayer2Wins);
+    game.scoreCallback(scoreBuild);
 
     game.startLoop();
 
@@ -114,6 +123,7 @@ const main = () => {
       <div class="player2-wins-screen">
         <h1>Player 2 Wins</h1>
         <button>RESTART</button>
+        <h2>
       </div>
     </section>
     
