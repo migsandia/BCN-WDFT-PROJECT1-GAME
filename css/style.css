@@ -60,37 +60,74 @@ body {
   height: 120px;
 }
 
-/*---------------------GAME OVER SCREEN------------------*/
-.game-over-screen{
-  width: 825px;
-  height: 464px;
-  margin: 0 auto;
-  background-image: url("../images/PANTALLA-PRINCIPAL.jpg");
-  text-align: center;
-  padding-top: 100px;
-  border: 2px solid #4DBCCB;
+/*---------------------PLAYER1 WINS SCREEN------------------*/
 
+.player1-wins{
+  display: grid;
+  /*align-items: start;*/
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/player1-wins.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.player1-wins-screen{
+  width: 90vh;
+  height: 40vh;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.game-over-screen h1{
+.player1-wins-screen h1{
+  font-family: 'Orbitron';
+  font-weight: bold;
+  color: #4DBCCB;
   font-size: 5em;
   text-shadow: 2px;
 }
 
-.game-over-screen button{
-  font-size: 3em;
-  border-radius: 20px;
+.player1-wins-screen button{
+  font-family: 'Orbitron';
+  font-size: 2.5em;
+  color: #4DBCCB;
   border:  2px solid #4DBCCB;
+  background-color: transparent;
 }
 
-.game-over{
+/*---------------------PLAYER2 WINS SCREEN------------------*/
+
+.player2-wins{
   display: grid;
-  align-items: center;
-  background-color: black;
+  align-items: start;
   width: 100%;
   height: 100vh;
-  
+  background-image: url('../images/player2-wins.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+.player2-wins-screen{
+  width: 90vh;
+  height: 40vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.player2-wins-screen h1{
+  font-family: 'Orbitron';
+  font-weight: bold;
+  color: #AF5E5E;
+  font-size: 5em;
+  text-shadow: 2px;
+}
+
+.player2-wins-screen button{
+  font-family: 'Orbitron';
+  font-size: 2.5em;
+  color: #AF5E5E;
+  border:  2px solid #AF5E5E;
+  background-color: transparent;
+}
+
 
 /*------------------GAME SCREEN-------------------------------------*/
 .game-screen{

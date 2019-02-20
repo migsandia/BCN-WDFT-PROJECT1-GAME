@@ -49,7 +49,9 @@ const main = () => {
 
 
     const game =new Game(canvasElement);
-    game.gameOverCallback(buildGameOver);
+    //game.gameOverCallback(buildGameOver);
+    game.player1WinsCallback(buildPlayer1Wins);
+    game.player2WinsCallback(buildPlayer2Wins);
 
     game.startLoop();
 
@@ -88,12 +90,30 @@ const main = () => {
     document.addEventListener('keydown', setPlayerDirection);
   }
 
-  const buildGameOver = () =>{
-    const gameOverScreen = buildDom(`
-    <section class="game-over">
-      <div class="game-over-screen">
-        <h1>Game Over Screen</h1>
-        <button>Restart</button>
+  
+
+  const buildPlayer1Wins = () =>{
+    const player1WinsScreen = buildDom(`
+    <section class="player1-wins">
+      <div class="player1-wins-screen">
+        <h1>Player 1 Wins</h1>
+        <button>RESTART</button>
+      </div>
+    </section>
+    
+    `);
+
+    const restartButton = document.querySelector('button');
+    restartButton.addEventListener('click',buildGameScreen);
+
+  }
+
+  const buildPlayer2Wins = () =>{
+    const player2WinsScreen = buildDom(`
+    <section class="player2-wins">
+      <div class="player2-wins-screen">
+        <h1>Player 2 Wins</h1>
+        <button>RESTART</button>
       </div>
     </section>
     

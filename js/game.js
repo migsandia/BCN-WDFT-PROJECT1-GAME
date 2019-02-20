@@ -9,7 +9,8 @@ class Game{
     this.trails2=[];
     this.numTrails=0;
     this.speedItem;
-    this.isGameOver = false;
+    this.player1Win = false;
+    this.player2Win = false;
   };
 
   startLoop() {
@@ -28,21 +29,24 @@ class Game{
       this.clearCanvas();
       this.drawCanvas();
 
-      if(!this.isGameOver) {
+      if(!this.player1Win && !this.player2Win) {
         window.requestAnimationFrame(loop);
       }
      
     }
     window.requestAnimationFrame(loop);
   }
-
+  //----------------------Update Canvas---------------
   updateCanvas(){
-    this.player.update();
-    this.player2.update();
+
+    this.player.update();//Update Player1
+    this.player2.update();//Update Player2
     
+    //-----Update Trail1
     this.trails.forEach((trail1)=>{
       trail1.update(this.player.x,this.player.y);
     });
+    //-----Update Trail2
     this.trails2.forEach((trail1)=>{
       trail1.update(this.player2.x,this.player2.y);
     });
@@ -51,42 +55,46 @@ class Game{
   clearCanvas(){
     this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
   };
-
+  //-----------------------Dibujar Canvas--------------------------
   drawCanvas(){
-    var img = new Image();
-    img.src = "../images/tron-fondo-juego.jpg";
-    img.onload = function(){
-      ctx.drawImage(img, 0, 0);
-    }
+    //Se crea imagen de fondo del canvas
+        var img = new Image();
+        img.src = "../images/tron-fondo-juego.jpg";
+        img.onload = function(){
+          ctx.drawImage(img, 0, 0);
+        }
     
-    this.player.draw();
-    this.player2.draw();
+    this.player.draw();//Se crea jugador1
+    this.player2.draw();//Se crea jugador2
+    //Se crea Trail1
     this.trails.forEach((trail1)=>{
       trail1.draw();
     });
+    //Se crea Trail2
     this.trails2.forEach((trail1)=>{
       trail1.draw();
     });
   };
-
+  //--------------------------Colisiones---------------------------
   checkAllCollisions(){
     //Jugador1 choca contra la pared
     if(this.player.checkScreen() === true){
-      this.isGameOver = true;
-      this.onGameOver();
+      this.player2Win = true;
+      this.onPlayer2Wins();
     };
     //Jugador2 choca contra la pared
     if(this.player2.checkScreen() === true){
-      this.isGameOver = true;
-      this.onGameOver();
+      this.player1Win = true;
+      this.onPlayer1Wins();
     };
     
 
     this.trails.forEach((trail) => {
       //Si el Jugador1 choca contra la estela del Jugador1
       if(this.player.checkCollisionEnemy(trail)){
-        this.isGameOver = true;
-        this.onGameOver();
+        this.player2Win = true;
+        this.onPlayer2Wins();
+        
         /*
         if(this.player.lives===0){
             this.onGameOver();
@@ -94,8 +102,8 @@ class Game{
       }
       //Si el Jugador2 choca contra la estela del Jugador1
       if(this.player2.checkCollisionEnemy(trail)){
-        this.isGameOver = true;
-        this.onGameOver();
+        this.player1Win = true;
+      this.onPlayer1Wins();
         /*
         if(this.player2.lives===0){
             this.onGameOver();
@@ -107,24 +115,28 @@ class Game{
     this.trails2.forEach((trail) => {
       //Si el Jugador2 choca contra la estela del Jugador2
       if(this.player2.checkCollisionEnemy(trail)){
-        this.isGameOver = true;
-        this.onGameOver();
+        this.player1Win = true;
+        this.onPlayer1Wins();
         /*if(this.player2.lives===0){
             this.onGameOver();
         }*/
       }
       //Si el Jugador1 choca contra la estela del Jugador2
       if(this.player.checkCollisionEnemy(trail)){
-        this.isGameOver = true;
-        this.onGameOver();
+        this.player2Win = true;
+        this.onPlayer2Wins();
         /*if(this.player.lives===0){
           this.onGameOver();
         }*/
       }
     });
   };
-  gameOverCallback(callback) {
-    this.onGameOver= callback;
+  
+  player1WinsCallback(callback) {
+    this.onPlayer1Wins= callback;
+  };
+  player2WinsCallback(callback) {
+    this.onPlayer2Wins= callback;
   };
 
   resetItems(){
