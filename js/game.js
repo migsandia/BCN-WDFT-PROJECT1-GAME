@@ -8,7 +8,7 @@ class Game{
     this.trails=[];
     this.trails2=[];
     this.numTrails=0;
-    this.pauseItem;
+    this.pauseItems=[];
     this.player1Win = false;
     this.player2Win = false;
     this.scorePlayer1Win = 5;
@@ -17,12 +17,16 @@ class Game{
 
   startLoop() {
    
-    this.player= new Player (this.canvas,4,100,50,1,"blue");
-    this.player2= new Player (this.canvas,4,800,400,-1,"red");
-    this.pauseItem= new PauseItem (this.canvas,200,200);
+    this.player= new Player (this.canvas,100,50,1,"blue");
+    this.player2= new Player (this.canvas,800,400,-1,"red");
+    
     
     const loop = () => {
-    
+      if(Math.random() > 0.98 && this.pauseItems.length<1) {
+        const y = Math.random() * this.canvas.height;
+        const x = Math.random() * this.canvas.width;
+        this.pauseItems.push(new PauseItem(this.canvas,x,y));
+      };
       this.trails.push(new Trail(this.canvas,this.player.x,this.player.y,this.player.directionX,this.player.directionY,'#5E8FAF'));
       this.trails2.push(new Trail(this.canvas,this.player2.x,this.player2.y,this.player2.directionX,this.player2.directionY,"#AF5E5E"));
       this.updateScore();
@@ -68,7 +72,10 @@ class Game{
     
     this.player.draw();//Se crea jugador1
     this.player2.draw();//Se crea jugador2
-    this.pauseItem.draw();//Se crea item de pausa
+    //Se crea item de pausa
+    this.pauseItems.forEach((pauseItem)=>{
+      pauseItem.draw();
+    });
     //Se crea Trail1
     this.trails.forEach((trail1)=>{
       trail1.draw();
@@ -82,8 +89,8 @@ class Game{
   checkAllCollisions(){
     //Jugador1 choca contra la pared
     if(this.player.checkScreen() === true){
-      this.player= new Player (this.canvas,4,100,100,1,"blue");
-      this.player2= new Player (this.canvas,4,800,400,-1,"red");
+      this.player= new Player (this.canvas,100,100,1,"blue");
+      this.player2= new Player (this.canvas,800,400,-1,"red");
       this.trails = [];
       this.trails2 = [];
       this.scorePlayer1Win -= 1;
@@ -94,9 +101,8 @@ class Game{
     };
     //Jugador2 choca contra la pared
     if(this.player2.checkScreen() === true){
-      this.player= new Player (this.canvas,4,100,100,1,"blue");
-      this.player2= new Player (this.canvas,4,800,400,-1,"red");
-      this.player1Win = false;
+      this.player= new Player (this.canvas,100,100,1,"blue");
+      this.player2= new Player (this.canvas,800,400,-1,"red");
       this.trails2 = [];
       this.trails = [];
       this.scorePlayer2Win -= 1;
@@ -104,14 +110,26 @@ class Game{
         this.player1Win = true;
         this.onPlayer1Wins();
       }
-    };
+    }
+    //Si el jugador choca contra el Pause Item
+    this.pauseItems.forEach((item,index) => {
+      if(this.player.checkPauseItem(item)){
+        this.pauseItems.splice(index, 1);
+        this.player2.speed = 0;
+      }
+      if(this.player2.checkPauseItem(item)){
+        this.pauseItems.splice(index, 1);
+        this.player.speed = 0;
+      }
+    });
+
     
 
     this.trails.forEach((trail) => {
       //Si el Jugador1 choca contra la estela del Jugador1
       if(this.player.checkCollisionEnemy(trail)){
-        this.player= new Player (this.canvas,4,100,100,1,"blue");
-        this.player2= new Player (this.canvas,4,400,400,-1,"red");
+        this.player= new Player (this.canvas,100,100,1,"blue");
+        this.player2= new Player (this.canvas,400,400,-1,"red");
         this.trails = [];
         this.trails2 = [];
         this.scorePlayer1Win -= 1;
@@ -122,9 +140,8 @@ class Game{
       }
       //Si el Jugador2 choca contra la estela del Jugador1
       if(this.player2.checkCollisionEnemy(trail)){
-        this.player= new Player (this.canvas,4,100,100,1,"blue");
-        this.player2= new Player (this.canvas,4,800,400,-1,"red");
-        this.player1Win = false;
+        this.player= new Player (this.canvas,100,100,1,"blue");
+        this.player2= new Player (this.canvas,800,400,-1,"red");
         this.trails2 = [];
         this.trails = [];
         this.scorePlayer2Win -= 1;
@@ -138,9 +155,8 @@ class Game{
     this.trails2.forEach((trail) => {
       //Si el Jugador2 choca contra la estela del Jugador2
       if(this.player2.checkCollisionEnemy(trail)){
-        this.player= new Player (this.canvas,4,100,100,1,"blue");
-        this.player2= new Player (this.canvas,4,800,400,-1,"red");
-        this.player1Win = false;
+        this.player= new Player (this.canvas,100,100,1,"blue");
+        this.player2= new Player (this.canvas,800,400,-1,"red");
         this.trails2 = [];
         this.trails = [];
         this.scorePlayer2Win -= 1;
@@ -151,8 +167,8 @@ class Game{
       }
       //Si el Jugador1 choca contra la estela del Jugador2
       if(this.player.checkCollisionEnemy(trail)){
-        this.player= new Player (this.canvas,4,100,100,1,"blue");
-        this.player2= new Player (this.canvas,4,800,400,-1,"red");
+        this.player= new Player (this.canvas,100,100,1,"blue");
+        this.player2= new Player (this.canvas,800,400,-1,"red");
         this.trails = [];
         this.trails2 = [];
         this.scorePlayer1Win -= 1;

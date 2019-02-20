@@ -1,6 +1,6 @@
 'use strict'
 class Player{
-  constructor(canvas,lives,x,y,direction,color){
+  constructor(canvas,x,y,direction,color){
     
     this.size=20;
     this.canvas=canvas;
@@ -10,7 +10,6 @@ class Player{
     this.speed = 4;
     this.directionX=direction;
     this.directionY=0;
-    this.lives = lives;
     this.color = color;
   };
 
@@ -89,7 +88,39 @@ class Player{
       return false;
 }
      
-    loseLive(){
-      this.lives--;
-    }
+checkPauseItem(pauseItem){
+      let collideRight=false;
+      let collideLeft=false;
+      let collideTop=false;
+      let collideBottom=false;
+
+      if(this.directionX===1){
+        collideRight = this.x + this.size / 2 > pauseItem.x-this.size/2;  
+        collideLeft = this.x - this.size/2 < pauseItem.x-this.size/2;
+        collideTop = this.y - this.size / 2 < pauseItem.y + pauseItem.size / 2;
+        collideBottom = this.y + this.size / 2 > pauseItem.y - pauseItem.size / 2;
+      }else if(this.directionX===-1){
+        collideRight = this.x - this.size / 2 < pauseItem.x+this.size/2;  
+        collideLeft = this.x + this.size/2 > pauseItem.x+this.size/2;
+        collideTop = this.y - this.size / 2 < pauseItem.y + pauseItem.size / 2;
+        collideBottom = this.y + this.size / 2 > pauseItem.y - pauseItem.size / 2;
+      }else if(this.directionY===1){
+        collideRight = this.x + this.size / 2 > pauseItem.x-pauseItem.size /2;  
+        collideLeft = this.x - this.size/2 < pauseItem.x-pauseItem.size /2;
+        collideTop = this.y + this.size / 2 > pauseItem.y - this.size / 2;
+        collideBottom = this.y - this.size / 2 < pauseItem.y - this.size / 2;
+      }else if(this.directionY===-1){
+        collideRight = this.x + this.size / 2 > pauseItem.x-pauseItem.size /2;  
+        collideLeft = this.x - this.size/2 < pauseItem.x-pauseItem.size /2;
+        collideTop = this.y - this.size / 2 < pauseItem.y + this.size / 2;
+        collideBottom = this.y + this.size / 2 > pauseItem.y + this.size / 2;
+      }
+     
+
+        if(collideRight && collideTop && collideBottom && collideLeft){
+          
+          return true;
+        }
+
+}
 }
