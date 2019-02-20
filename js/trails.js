@@ -21,16 +21,16 @@ class Trail{
     this.ctx.fillStyle = this.color;
     //Girar la derecha
     if(this.directionX === 1 && this.directionY === 0){
-      this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,2,this.size);
+      this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,4,this.size);
     }//Girar Abajo
     else if(this.directionX === 0 && this.directionY === 1){
-      this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,this.size,2);
+      this.ctx.fillRect(this.x-this.size/2, this.y-this.size/2,this.size,4);
     }//Girar a la izquierda
     else if(this.directionX === -1 && this.directionY === 0){
-      this.ctx.fillRect(this.x+this.size/2-2, this.y-this.size/2,2,this.size);
+      this.ctx.fillRect(this.x+this.size/2-4, this.y-this.size/2,4,this.size);
     }//Girar Arriba
     else if(this.directionX === 0 && this.directionY === -1){
-      this.ctx.fillRect(this.x-this.size/2, this.y+this.size/2-2,this.size,2);
+      this.ctx.fillRect(this.x-this.size/2, this.y+this.size/2-4,this.size,4);
     }
   }
 
