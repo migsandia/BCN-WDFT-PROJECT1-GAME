@@ -13,6 +13,7 @@ class Game{
     this.player2Win = false;
     this.scorePlayer1Win = 5;
     this.scorePlayer2Win = 5;
+    this.pauseCountPlayer= 300;
   };
 
   startLoop() {
@@ -22,7 +23,7 @@ class Game{
     
     
     const loop = () => {
-      if(Math.random() > 0.98 && this.pauseItems.length<1) {
+      if(Math.random() > 0.99 && this.pauseItems.length<1) {
         const y = Math.random() * this.canvas.height;
         const x = Math.random() * this.canvas.width;
         this.pauseItems.push(new PauseItem(this.canvas,x,y));
@@ -34,6 +35,14 @@ class Game{
       this.updateCanvas();
       this.clearCanvas();
       this.drawCanvas();
+      if(this.player.speed===0){
+        this.pauseCountPlayer-=1;
+        if(this.pauseCountPlayer===0){
+          this.timePauseItem();
+          this.pauseCountPlayer=300;
+        }
+      }
+      
 
       if(!this.player1Win && !this.player2Win) {
         window.requestAnimationFrame(loop);
@@ -110,6 +119,7 @@ class Game{
       if(this.player.checkPauseItem(item)){
         this.pauseItems.splice(index, 1);
         this.player2.speed = 0;
+        
       }
       if(this.player2.checkPauseItem(item)){
         this.pauseItems.splice(index, 1);
@@ -173,6 +183,10 @@ class Game{
       }
     });
   };
+
+  timePauseItem(){
+    this.player.speed=4;
+  }
   
   player1WinsCallback(callback) {
     this.onPlayer1Wins= callback;
