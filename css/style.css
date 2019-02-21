@@ -64,7 +64,6 @@ body {
 
 .player1-wins{
   display: grid;
-  /*align-items: start;*/
   width: 100%;
   height: 100vh;
   background-image: url('../images/player1-wins.png');
@@ -73,9 +72,11 @@ body {
 }
 .player1-wins-screen{
   width: 90vh;
-  height: 40vh;
+  height: 200px;
   margin: 0 auto;
   text-align: center;
+  display: grid;
+
 }
 
 .player1-wins-screen h1{
@@ -84,14 +85,28 @@ body {
   color: #4DBCCB;
   font-size: 5em;
   text-shadow: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .player1-wins-screen button{
   font-family: 'Orbitron';
   font-size: 2.5em;
   color: #4DBCCB;
+  width: 250px;
+  height: 60px;
+  margin: 10px auto;
+  padding-top: 10px;
   border:  2px solid #4DBCCB;
   background-color: transparent;
+}
+
+.player1-wins-screen button:hover{
+  cursor: pointer;
+  width: 270px;
+  height: 70px;
+  font-size: 2.7em;
+  border:  4px solid #4DBCCB;
 }
 
 /*---------------------PLAYER2 WINS SCREEN------------------*/
@@ -107,9 +122,10 @@ body {
 }
 .player2-wins-screen{
   width: 90vh;
-  height: 40vh;
+  height: 200px;
   margin: 0 auto;
   text-align: center;
+  display: grid;
 }
 
 .player2-wins-screen h1{
@@ -118,6 +134,8 @@ body {
   color: #AF5E5E;
   font-size: 5em;
   text-shadow: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .player2-wins-screen button{
@@ -126,8 +144,19 @@ body {
   color: #AF5E5E;
   border:  2px solid #AF5E5E;
   background-color: transparent;
+  width: 250px;
+  height: 60px;
+  margin: 10px auto;
+  padding-top: 10px;
 }
 
+.player2-wins-screen button:hover{
+  cursor: pointer;
+  width: 270px;
+  height: 70px;
+  font-size: 2.7em;
+  border:  4px solid #AF5E5E;
+}
 
 /*------------------GAME SCREEN-------------------------------------*/
 .game-screen{
@@ -142,13 +171,13 @@ body {
   background-size: cover;
 }
 .game-screen-score{
-  width: 600px;
+  width: 900px;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   display:grid;
-  grid-template-columns: 300px 200px 300px;
+  grid-template-columns: 33% 33% 33%;
   grid-template-rows: 50px 100px 150px;
-  justify-self: start;
+  justify-self: center;
   justify-items: center;
   align-items: center;
 }
@@ -161,25 +190,34 @@ body {
   grid-row: 1 / 2;
 }
 .score-players{
-  border: 4px solid #4AF5D9;
   width: 100%;
-  height: 15vh;
+  height: 10vh;
   font-family: 'Orbitron';
   font-size: 3em;
   color: #4AF5D9;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 33% 33% 33%;
   justify-items: center;
+  
 }
 
 .score-player1{
+  margin: 5px auto;
   grid-column: 1 / 2;
+  
 }
-
+.score-heart{
+  margin: 5px auto;
+  width: 70px;
+  height: 70px;
+  grid-column: 2 / 3
+  ;
+}
 .score-player2{
-  grid-column: 2 / 3;
+  margin: 5px auto;
+  grid-column: 3 / 4;
 }
 
 .title-player2{
@@ -202,10 +240,12 @@ body {
 }
 .game-screen-content{
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   border:  5px solid #4AF5D9;
   justify-self: stretch;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-image: url('../images/tron-fondo-juego.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }

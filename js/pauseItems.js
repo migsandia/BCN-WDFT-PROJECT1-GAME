@@ -3,7 +3,7 @@
 class PauseItem{
   constructor(canvas,x,y){
     
-    this.size=30;
+    this.size=40;
     this.canvas=canvas;
     this.ctx= this.canvas.getContext('2d');
     this.x = x;

@@ -9,9 +9,7 @@ const main = () => {
 
   const buildSplashScreen = () => {
     const  splashScreen = buildDom(`
-    <audio autoplay>
-    <source src="audios/splash-screen.mp3" type="audio/mp4">
-    </audio>
+    
     <section class="splash_screen">
       <div class="splash_screen_start">
         <img src="images/titulo.png" alt="titulo" class="splash-screen-title" />
@@ -25,6 +23,9 @@ const main = () => {
 //--------------BUILD GAME SCREEEN
   const buildGameScreen = () => {
     const gameScreen = buildDom(`
+    <audio autoplay>
+    <source src="audios/splash-screen.mp3" type="audio/mp4">
+    </audio>
       <section class="game-screen">
         <div class="game-screen-score">
           <h2 class="title-player1">PLAYER 1</h2>
@@ -33,6 +34,7 @@ const main = () => {
           <img src="images/player-red.png" class="game-screen-red-moto" />
           <div class="score-players">
             <h3 class="score-player1"></h3>
+            <img src="images/heart-red.png" class="score-heart" />
             <h3 class="score-player2"></h3>
           </div>
         </div>

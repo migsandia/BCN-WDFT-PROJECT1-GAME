@@ -63,12 +63,6 @@ class Game{
   };
   //-----------------------Dibujar Canvas--------------------------
   drawCanvas(){
-    //Se crea imagen de fondo del canvas
-        var img = new Image();
-        img.src = "../images/tron-fondo-juego.jpg";
-        img.onload = function(){
-          ctx.drawImage(img, 0, 0);
-        }
     
     this.player.draw();//Se crea jugador1
     this.player2.draw();//Se crea jugador2
@@ -94,7 +88,7 @@ class Game{
       this.trails = [];
       this.trails2 = [];
       this.scorePlayer1Win -= 1;
-      if(this.scorePlayer1Win < 0){
+      if(this.scorePlayer1Win < 1){
         this.player2Win = true;
         this.onPlayer2Wins();
       }
@@ -106,7 +100,7 @@ class Game{
       this.trails2 = [];
       this.trails = [];
       this.scorePlayer2Win -= 1;
-      if(this.scorePlayer2Win < 0){
+      if(this.scorePlayer2Win < 1){
         this.player1Win = true;
         this.onPlayer1Wins();
       }
@@ -133,7 +127,7 @@ class Game{
         this.trails = [];
         this.trails2 = [];
         this.scorePlayer1Win -= 1;
-        if(this.scorePlayer1Win < 0){
+        if(this.scorePlayer1Win < 1){
           this.player2Win = true;
           this.onPlayer2Wins();
         }
@@ -145,7 +139,7 @@ class Game{
         this.trails2 = [];
         this.trails = [];
         this.scorePlayer2Win -= 1;
-        if(this.scorePlayer2Win < 0){
+        if(this.scorePlayer2Win < 1){
           this.player1Win = true;
           this.onPlayer1Wins();
         }
@@ -160,7 +154,7 @@ class Game{
         this.trails2 = [];
         this.trails = [];
         this.scorePlayer2Win -= 1;
-        if(this.scorePlayer2Win < 0){
+        if(this.scorePlayer2Win < 1){
           this.player1Win = true;
           this.onPlayer1Wins();
         }
@@ -172,7 +166,7 @@ class Game{
         this.trails = [];
         this.trails2 = [];
         this.scorePlayer1Win -= 1;
-        if(this.scorePlayer1Win < 0){
+        if(this.scorePlayer1Win < 1){
           this.player2Win = true;
           this.onPlayer2Wins();
         }
