@@ -42,6 +42,13 @@ class Game{
           this.pauseCountPlayer=300;
         }
       }
+      if(this.player2.speed===0){
+        this.pauseCountPlayer-=1;
+        if(this.pauseCountPlayer===0){
+          this.timePauseItem();
+          this.pauseCountPlayer=300;
+        }
+      }
       
 
       if(!this.player1Win && !this.player2Win) {
@@ -186,6 +193,7 @@ class Game{
 
   timePauseItem(){
     this.player.speed=4;
+    this.player2.speed=4;
   }
   
   player1WinsCallback(callback) {

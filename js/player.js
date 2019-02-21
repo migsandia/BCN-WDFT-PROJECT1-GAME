@@ -45,7 +45,7 @@ class Player{
 
     if(this.y - this.size/2 <=0 || this.x-this.size/2 <=0){
       return true;
-    }else if(this.y + this.size/2 >= this.canvas.height || this.x + this.size/2 >= this.canvas.width){
+    }else if(this.y + this.size >= this.canvas.height || this.x + this.size >= this.canvas.width){
       return true;
     }
   }
@@ -89,33 +89,11 @@ class Player{
 }
      
 checkPauseItem(pauseItem){
-      let collideRight=false;
-      let collideLeft=false;
-      let collideTop=false;
-      let collideBottom=false;
-
-      if(this.directionX===1){
-        collideRight = this.x + this.size / 2 > pauseItem.x-this.size/2;  
-        collideLeft = this.x - this.size/2 < pauseItem.x-this.size/2;
-        collideTop = this.y - this.size / 2 < pauseItem.y + pauseItem.size / 2;
-        collideBottom = this.y + this.size / 2 > pauseItem.y - pauseItem.size / 2;
-      }else if(this.directionX===-1){
-        collideRight = this.x - this.size / 2 < pauseItem.x+this.size/2;  
-        collideLeft = this.x + this.size/2 > pauseItem.x+this.size/2;
-        collideTop = this.y - this.size / 2 < pauseItem.y + pauseItem.size / 2;
-        collideBottom = this.y + this.size / 2 > pauseItem.y - pauseItem.size / 2;
-      }else if(this.directionY===1){
-        collideRight = this.x + this.size / 2 > pauseItem.x-pauseItem.size /2;  
-        collideLeft = this.x - this.size/2 < pauseItem.x-pauseItem.size /2;
-        collideTop = this.y + this.size / 2 > pauseItem.y - this.size / 2;
-        collideBottom = this.y - this.size / 2 < pauseItem.y - this.size / 2;
-      }else if(this.directionY===-1){
-        collideRight = this.x + this.size / 2 > pauseItem.x-pauseItem.size /2;  
-        collideLeft = this.x - this.size/2 < pauseItem.x-pauseItem.size /2;
-        collideTop = this.y - this.size / 2 < pauseItem.y + this.size / 2;
-        collideBottom = this.y + this.size / 2 > pauseItem.y + this.size / 2;
-      }
-     
+      
+    const collideRight = this.x + this.size / 2 > pauseItem.x - pauseItem.size/ 2;
+    const collideLeft = this.x - this.size / 2 < pauseItem.x + pauseItem.size/ 2;
+    const collideTop = this.y - this.size / 2 < pauseItem.y + pauseItem.size / 2;
+    const collideBottom = this.y + this.size / 2 > pauseItem.y - pauseItem.size / 2;
 
         if(collideRight && collideTop && collideBottom && collideLeft){
           
