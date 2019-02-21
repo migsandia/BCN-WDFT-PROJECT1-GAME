@@ -13,13 +13,13 @@ class Game{
     this.player2Win = false;
     this.scorePlayer1Win = 5;
     this.scorePlayer2Win = 5;
-    this.pauseCountPlayer= 300;
+    this.pauseCountPlayer= 150;
   };
 
   startLoop() {
    
     this.player= new Player (this.canvas,100,50,1,"blue");
-    this.player2= new Player (this.canvas,800,400,-1,"red");
+    this.player2= new Player (this.canvas,850,450,-1,"red");
     
     
     const loop = () => {
@@ -39,14 +39,14 @@ class Game{
         this.pauseCountPlayer-=1;
         if(this.pauseCountPlayer===0){
           this.timePauseItem();
-          this.pauseCountPlayer=300;
+          this.pauseCountPlayer=150;
         }
       }
       if(this.player2.speed===0){
         this.pauseCountPlayer-=1;
         if(this.pauseCountPlayer===0){
           this.timePauseItem();
-          this.pauseCountPlayer=300;
+          this.pauseCountPlayer=150;
         }
       }
       

@@ -135,6 +135,8 @@ const main = () => {
     restartButton.addEventListener('click',buildGameScreen);
 
   }
+
+  
   buildSplashScreen();
 };
 
